@@ -6,10 +6,10 @@ import {
 import * as anchor from "@project-serum/anchor"
 import { FC, useEffect, useState } from "react"
 import idl from "../idl.json"
-import { Button } from "@chakra-ui/react"
+import { Button, systemProps } from "@chakra-ui/react"
 
 const PROGRAM_ID = new anchor.web3.PublicKey(
-  `9sMy4hnC9MML6mioESFZmzpntt3focqwUq1ymPgbMf64`
+  `AfU9HNwCUYxY7MeHSz1ocFGU4L3i8xfTJA5Q5YrjHwU4`
 )
 
 export interface Props {
@@ -44,6 +44,8 @@ export const Initialize: FC<Props> = ({ setCounter, setTransactionUrl }) => {
       .initialize()
       .accounts({
         counter: newAccount.publicKey,
+        user: wallet.publicKey,
+        systemAccount: anchor.web3.SystemProgram.programId,
       })
       .signers([newAccount])
       .rpc()

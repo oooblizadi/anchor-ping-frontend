@@ -8,7 +8,7 @@ import { FC, useCallback, useEffect, useState } from "react"
 import idl from "../idl.json"
 import { Button, HStack, VStack, Text } from "@chakra-ui/react"
 
-const PROGRAM_ID = `9sMy4hnC9MML6mioESFZmzpntt3focqwUq1ymPgbMf64`
+const PROGRAM_ID = `AfU9HNwCUYxY7MeHSz1ocFGU4L3i8xfTJA5Q5YrjHwU4`
 
 export interface Props {
   counter
@@ -41,6 +41,7 @@ export const Increment: FC<Props> = ({ counter, setTransactionUrl }) => {
       .increment()
       .accounts({
         counter: counter,
+        // user: wallet.publicKey,
       })
       .rpc()
 
